@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { NgxSoapModule } from 'ngx-soap';
 import { CourseComponent } from './layouts/course/course.component';
 import { AddCourseComponent } from './layouts/course/add-course/add-course.component';
+import { BestCourseComponent } from './layouts/course/best-course/best-course.component';
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
@@ -21,7 +22,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 }
 
 @NgModule({
-	declarations: [ AppComponent, CourseComponent, AddCourseComponent ],
+	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent],
 	imports: [
 		NgxSoapModule,
 		BrowserModule,
