@@ -4,7 +4,7 @@
 ## Creation
 _ng generate component layouts/course_
     __src/app/layouts/course/course.component.*__
-    Created the course component, but it's missing its .routing.ts and its .module.ts implementation that Product has in its root.
+    Created the course component.
 
 _touch src/app/shared/models/course.ts_
     __src/app/models/course.ts__
