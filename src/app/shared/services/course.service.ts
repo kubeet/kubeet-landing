@@ -47,6 +47,16 @@ export class CourseService {
     return this.course;
   }
 
+  // Updates a Course
+  updateCourse(data: Course) {
+    //	this.products.update(data.$key, data);
+  }
+  
+  // Deletes a Course
+  deleteCourse(key: string) {
+    //	this.products.remove(key);
+  }
+
   // Missing implementation of update and delete Course.
   // updateCourse(data: Course)
   // deleteCourse(courseKey: string)
@@ -133,7 +143,7 @@ export class CourseService {
 }
 
 export class FavouriteCourse {
-	product: Course;
-	productId: string;
-	userId: string;
+	course: Course;
+	courseID: string;
+	userId: string; 
 }

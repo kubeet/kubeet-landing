@@ -1,18 +1,6 @@
 @import "../../../../assets/theme/colors";
 @import "../../../../assets/theme/functions";
 
-.bq-title{
-  color: var(--courseTitle) !important;
-}
-
-.bq-primary {
-    border-left: 3px solid var(--courseTitle) !important;
-}
-
-.btn-default {
-  background-color: var(--navBackground) !important;
-}
-
 
 .section .section-heading {
   margin-top: 2rem;
@@ -38,7 +26,7 @@
 }
 
 .card.card-cascade.narrower {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .card.card-cascade {
   width: 100%;
@@ -73,16 +61,16 @@
 .card.card-cascade .card-body {
   padding-top: 1.8rem;
 }
-
+.btn .fa,
+.card .card-body {
+  position: relative;
+}
 
 .card .card-body .card-title a{
   color: var(--navBackground) !important;
 }
 
-.btn .fa,
-.card .card-body {
-  position: relative;
-}
+
 .card .rating {
   color: #ffa000;
 }
@@ -100,11 +88,13 @@
 .rating {
   padding: 0;
 }
+
 .card-text {
   line-height: 20px;
   height: 60px;
   overflow: hidden;
 }
+
 .card .card-footer {
   background-color: transparent;
 }

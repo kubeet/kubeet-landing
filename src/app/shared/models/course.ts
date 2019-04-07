@@ -8,5 +8,4 @@ export class Course {
     coursePrice: number;
     courseRating: number;
     courseTitle: string;
-    // Missing lessons, for now.
 }
