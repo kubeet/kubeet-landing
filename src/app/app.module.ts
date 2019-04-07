@@ -17,6 +17,8 @@ import { AddCourseComponent } from './layouts/course/add-course/add-course.compo
 import { BestCourseComponent } from './layouts/course/best-course/best-course.component';
 import { CartCalculatorComponent } from './layouts/course/cart-calculator/cart-calculator.component';
 import { CartCoursesComponent } from './layouts/course/cart-courses/cart-courses.component';
+import { CheckoutComponent } from './layouts/course/checkout/checkout.component';
+import { FavoriteCoursesComponent } from './layouts/course/favorite-courses/favorite-courses.component';
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
@@ -24,7 +26,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 }
 
 @NgModule({
-	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CartCalculatorComponent, CartCoursesComponent],
+	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent],
 	imports: [
 		NgxSoapModule,
 		BrowserModule,
