@@ -1,0 +1,72 @@
+<br>
+<!-- Global Containers -->
+<div class="container">
+  <div class="row">
+
+    <!-- First Column -->
+    <div class="col-sm-4">
+      <div class="course-image">
+
+        <!-- Image -->
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+          <img [src]="course.courseImage" [alt]="course.courseTitle" width="100%" class="img-fluid rounded">
+        </div>
+
+        <!-- Pricing -->
+        <div class="" style="margin-top:15px">
+          <ul class="list-group mb-3">
+            <!-- Price -->
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Course Price</h6>
+              </div>
+              <span class="text-muted" style="color:crimson !important">₹ {{course.coursePrice}}</span>
+            </li>
+            <!-- Seller -->
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Course Seller</h6>
+              </div>
+              <span class="text-muted" style="color:crimson !important">Kubeet</span>
+            </li>
+          </ul>
+          <button class="btn btn-primary" (click)="addCourseToCart(course)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-sm-8">
+      <div class="product-detail">
+        <h5 class="product-head">Product Details</h5>
+        <table class="table" cellspacing="0" style="max-height: 28px">
+          <tbody>
+            <tr>
+              <th scope="row">Course Title</th>
+              <td>{{course.courseTitle}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course Description</th>
+              <td>{{course.courseDescription}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course Category</th>
+              <td>{{course.courseCategory}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course ID</th>
+              <td>{{course.courseID}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course Rating</th>
+              <td>{{course.courseRating}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- List of Lessons -->
+    
+  </div>
+</div>

@@ -24,6 +24,9 @@ import { CheckoutNavbarComponent } from './layouts/course/checkout/checkout-navb
 import { CoursesComponent } from './layouts/course/checkout/courses/courses.component';
 import { ResultComponent } from './layouts/course/checkout/result/result.component';
 import { ShippingDetailsComponent } from './layouts/course/checkout/shipping-details/shipping-details.component';
+import { CourseListComponent } from './layouts/course/course-list/course-list.component';
+import { CourseDetailComponent } from './layouts/course/course-detail/course-detail.component';
+
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
@@ -31,7 +34,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 }
 
 @NgModule({
-	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent, BillingDetailsComponent, CheckoutNavbarComponent, CoursesComponent, ResultComponent, ShippingDetailsComponent],
+	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CourseListComponent, CourseDetailComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent, BillingDetailsComponent, CheckoutNavbarComponent, CoursesComponent, ResultComponent, ShippingDetailsComponent],
 	imports: [
 		NgxSoapModule,
 		BrowserModule,
