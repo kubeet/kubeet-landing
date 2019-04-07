@@ -19,6 +19,11 @@ import { CartCalculatorComponent } from './layouts/course/cart-calculator/cart-c
 import { CartCoursesComponent } from './layouts/course/cart-courses/cart-courses.component';
 import { CheckoutComponent } from './layouts/course/checkout/checkout.component';
 import { FavoriteCoursesComponent } from './layouts/course/favorite-courses/favorite-courses.component';
+import { BillingDetailsComponent } from './layouts/course/checkout/billing-details/billing-details.component';
+import { CheckoutNavbarComponent } from './layouts/course/checkout/checkout-navbar/checkout-navbar.component';
+import { CoursesComponent } from './layouts/course/checkout/courses/courses.component';
+import { ResultComponent } from './layouts/course/checkout/result/result.component';
+import { ShippingDetailsComponent } from './layouts/course/checkout/shipping-details/shipping-details.component';
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
@@ -26,7 +31,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 }
 
 @NgModule({
-	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent],
+	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent, BillingDetailsComponent, CheckoutNavbarComponent, CoursesComponent, ResultComponent, ShippingDetailsComponent],
 	imports: [
 		NgxSoapModule,
 		BrowserModule,
