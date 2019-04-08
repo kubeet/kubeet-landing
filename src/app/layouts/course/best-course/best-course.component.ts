@@ -3,6 +3,7 @@ import { Course } from 'src/app/shared/models/course';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
 import { TranslateService } from 'src/app/shared/services/translate.service';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { CoursesComponent } from '../checkout/courses/courses.component';
 
 @Component({
   selector: 'app-best-course',
@@ -50,10 +51,9 @@ export class BestCourseComponent implements OnInit {
       (course) => {
         this.loading = false;
         this.bestCourses = [];
-        for (let i=0; i<5; i++){
+        for (let i=0; i<course.length; i++){
           this.courseObject = course[i].payload.doc.data();
           this.courseObject.$key = course[i].payload.doc.id;
-          console.log("Best data: " + this.courseObject.$key);
           this.bestCourses.push(this.courseObject as Course);
         }
       },

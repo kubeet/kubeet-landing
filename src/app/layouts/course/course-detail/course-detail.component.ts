@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/shared/models/course';
+import { Lesson } from 'src/app/shared/models/lesson';
 import { CourseService } from 'src/app/shared/services/course.service';
+import { LessonService } from 'src/app/shared/services/lesson.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
 
 @Component({
@@ -13,11 +15,15 @@ export class CourseDetailComponent implements OnInit {
   // Class variables
   private sub: any;
   course: Course;
+  courseKey: string;
+  lessons: Lesson[];
+  lessonObject: Lesson;
   
   // Constructor
   constructor(
     private route: ActivatedRoute,
     private courseService: CourseService,
+    private lessonService: LessonService,
     private toastrService: ToastrService
   ) { this.course = new Course(); }
 
@@ -25,7 +31,9 @@ export class CourseDetailComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe((params) => {
       const id = params['id'];
+      this.courseKey = id;
       this.getCourseDetail(id);
+      this.getAllLessons(id);
     });
   }
 
@@ -35,7 +43,6 @@ export class CourseDetailComponent implements OnInit {
     //console.log("id:" + id);
     cour.snapshotChanges().subscribe(
       (course) => {
-        //console.log("Course" + course);
         this.course = course.payload.data();
       }, 
       (error) => {
@@ -55,5 +62,22 @@ export class CourseDetailComponent implements OnInit {
   }
 
   // ____________________ Lesson Related ____________________
+  getAllLessons(id: string){
+    const less = this.lessonService.getLessons(id);
+
+    less.snapshotChanges().subscribe(
+      (lesson) => {
+        this.lessons = [];
+        for (let i=0; i<lesson.length; i++){
+          this.lessonObject = lesson[i].payload.doc.data();
+          this.lessonObject.$key = lesson[i].payload.doc.id;
+          this.lessons.push(this.lessonObject);
+        }
+      },
+      (error) => {
+        this.toastrService.error('Error while fetching Lessons', error);
+      }
+    )
+  }
 
 }

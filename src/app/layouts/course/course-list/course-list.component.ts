@@ -41,7 +41,6 @@ export class CourseListComponent implements OnInit {
         course.forEach((element => {
           this.courseObject = element.payload.doc.data();
           this.courseObject.$key = element.payload.doc.id;
-          console.log("Data: " + this.courseObject.$key);
           this.courseList.push(this.courseObject as Course);
         }));
       },

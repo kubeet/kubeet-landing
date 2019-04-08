@@ -57,10 +57,6 @@ export class CourseService {
     //	this.products.remove(key);
   }
 
-  // Missing implementation of update and delete Course.
-  // updateCourse(data: Course)
-  // deleteCourse(courseKey: string)
-
   /* ___________________ Favourite System ___________________*/
   // Adding a favourite course.
   addFavouriteCourse(data: Course): void {
@@ -77,24 +73,7 @@ export class CourseService {
 
   // Fetching the favourite courses from an unsigned user.
   getLocalFavoriteCourses(): Course[] {
-    //const courses: Course[] = JSON.parse(localStorage.getItem('avf_item'));
-    const cour = this.getCourses();
-    var courseObject: Course;
-    var courses: Course[];
-    cour.snapshotChanges().subscribe(
-      (course) => {
-        var courses = [];
-        course.forEach((element => {
-          courseObject = element.payload.doc.data();
-          courseObject.$key = element.payload.doc.id;
-          courses.push(courseObject as Course);
-        }));
-      },
-      (err) => {
-        this.toastrService.error('Error while fetching Courses', err);
-      }
-    );
-
+    const courses: Course[] = JSON.parse(localStorage.getItem('avf_item')) || [];
     return courses;
   }
 
@@ -115,7 +94,6 @@ export class CourseService {
 
   // Calculate Local Favourite Course Count.
   calculateLocalFavouriteCourseCounts(){
-    console.log("UNDEFINED!!! " + this.getLocalFavoriteCourses().length);
     this.navbarFavoriteCourseCount = this.getLocalFavoriteCourses().length;
   }
 
