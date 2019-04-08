@@ -28,6 +28,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { CdkTableModule } from "@angular/cdk/table";
 import { CdkTreeModule } from "@angular/cdk/tree";
+import { NoCoursesFoundComponent } from './components/no-courses-found/no-courses-found.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -57,7 +58,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 		PageNotFoundComponent,
 		TranslatePipe,
 		CardLoaderComponent,
-		MomentTimeAgoPipe
+		MomentTimeAgoPipe,
+		NoCoursesFoundComponent
 	],
 	exports: [
 		NoProductsFoundComponent,
@@ -80,7 +82,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 		CardLoaderComponent,
 		CdkTableModule,
 		CdkTreeModule,
-		DragDropModule, ScrollingModule
+		DragDropModule,
+		ScrollingModule,
+		NoCoursesFoundComponent
 	],
 	providers: [AuthService, AuthGuard, AdminGaurd, ProductService, UserService, FormBuilder]
 })

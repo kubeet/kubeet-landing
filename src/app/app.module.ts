@@ -7,25 +7,12 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { TranslateService } from './shared/services/translate.service';
-import { ProductModule } from './layouts/product/product.module';
+//import { ProductModule } from './layouts/product/product.module';
+import { CourseModule } from './layouts/course/course.module';
 import { UserModule } from './layouts/user/user.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgxSoapModule } from 'ngx-soap';
-import { CourseComponent } from './layouts/course/course.component';
-import { AddCourseComponent } from './layouts/course/add-course/add-course.component';
-import { BestCourseComponent } from './layouts/course/best-course/best-course.component';
-import { CartCalculatorComponent } from './layouts/course/cart-calculator/cart-calculator.component';
-import { CartCoursesComponent } from './layouts/course/cart-courses/cart-courses.component';
-import { CheckoutComponent } from './layouts/course/checkout/checkout.component';
-import { FavoriteCoursesComponent } from './layouts/course/favorite-courses/favorite-courses.component';
-import { BillingDetailsComponent } from './layouts/course/checkout/billing-details/billing-details.component';
-import { CheckoutNavbarComponent } from './layouts/course/checkout/checkout-navbar/checkout-navbar.component';
-import { CoursesComponent } from './layouts/course/checkout/courses/courses.component';
-import { ResultComponent } from './layouts/course/checkout/result/result.component';
-import { ShippingDetailsComponent } from './layouts/course/checkout/shipping-details/shipping-details.component';
-import { CourseListComponent } from './layouts/course/course-list/course-list.component';
-import { CourseDetailComponent } from './layouts/course/course-detail/course-detail.component';
 
 
 /* to load and set en.json as the default application language */
@@ -34,13 +21,14 @@ export function setupTranslateFactory(service: TranslateService): Function {
 }
 
 @NgModule({
-	declarations: [ AppComponent, CourseComponent, AddCourseComponent, BestCourseComponent, CourseListComponent, CourseDetailComponent, CartCalculatorComponent, CartCoursesComponent, CheckoutComponent, FavoriteCoursesComponent, BillingDetailsComponent, CheckoutNavbarComponent, CoursesComponent, ResultComponent, ShippingDetailsComponent],
+	declarations: [ AppComponent ],
 	imports: [
 		NgxSoapModule,
 		BrowserModule,
 		BrowserAnimationsModule,
 		IndexModule,
-		ProductModule,
+		//ProductModule,
+		CourseModule,
 		UserModule,
 		SharedModule,
 		RouterModule.forRoot(AppRoutes),

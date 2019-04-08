@@ -2,31 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../shared/models/course';
 import { CourseService } from '../../../shared/services/course.service';
 @Component({
-	selector: 'app-favourite-courses',
-	templateUrl: './favourite-courses.component.html',
-	styleUrls: [ './favourite-courses.component.scss' ]
+	selector: 'app-favorite-courses',
+	templateUrl: './favorite-courses.component.html',
+	styleUrls: [ './favorite-courses.component.scss' ]
 })
-export class FavouriteCoursesComponent implements OnInit {
-	favoruiteCourses: Course[];
+export class FavoriteCoursesComponent implements OnInit {
+	favoriteCourses: Course[];
 	showDataNotFound = true;
 
 	// Not Found Message
-	messageTitle = 'No Favourite Courses Found';
-	messageDescription = 'Please, choose your favourite courses';
+	messageTitle = 'No Favorite Courses Found';
+	messageDescription = 'Please, choose your favorite courses';
 
 	constructor(private courseService: CourseService) {}
 
 	ngOnInit() {
-		this.getFavouriteCourse();
+		this.getFavoriteCourse();
 	}
-	removeFavourite(course: Course) {
+	removeFavorite(course: Course) {
 		this.courseService.removeLocalFavorite(course);
 
-		this.getFavouriteCourse();
+		this.getFavoriteCourse();
 	}
 
-	getFavouriteCourse() {
-		this.favoruiteCourses = this.courseService.getLocalFavouriteCourses();
+	getFavoriteCourse() {
+		this.favoriteCourses = this.courseService.getLocalFavoriteCourses();
 	}
 }
 

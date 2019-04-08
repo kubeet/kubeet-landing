@@ -1,8 +1,8 @@
 <br>
-<div class="container" *ngIf="favoruiteCourses.length > 0">
+<div class="container" *ngIf="favoriteCourses.length > 0">
   <div class="row">
     <!-- List of Products -->
-    <div class="col-sm-4" *ngFor="let product of favoruiteCourses">
+    <div class="col-sm-4" *ngFor="let product of favoriteCourses">
       <div class="item">
         <div class=" mb-r">
 
@@ -63,8 +63,8 @@
   </div>
 </div>
 
-<div class="container" *ngIf="favoruiteCourses.length === 0">
+<div class="container" *ngIf="favoriteCourses.length === 0">
 
-  <app-no-courses-found [title]="messageTitle" [description]="messageDescription"></app-no-courses-found>
+  <!-- <app-no-courses-found [title]="messageTitle" [description]="messageDescription"></app-no-courses-found> -->
 </div>
 

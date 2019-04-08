@@ -76,8 +76,25 @@ export class CourseService {
   }
 
   // Fetching the favourite courses from an unsigned user.
-  getLocalFavouriteCourses(): Course[] {
-    const courses: Course[] = JSON.parse(localStorage.getItem('avf_item'));
+  getLocalFavoriteCourses(): Course[] {
+    //const courses: Course[] = JSON.parse(localStorage.getItem('avf_item'));
+    const cour = this.getCourses();
+    var courseObject: Course;
+    var courses: Course[];
+    cour.snapshotChanges().subscribe(
+      (course) => {
+        var courses = [];
+        course.forEach((element => {
+          courseObject = element.payload.doc.data();
+          courseObject.$key = element.payload.doc.id;
+          courses.push(courseObject as Course);
+        }));
+      },
+      (err) => {
+        this.toastrService.error('Error while fetching Courses', err);
+      }
+    );
+
     return courses;
   }
 
@@ -98,7 +115,8 @@ export class CourseService {
 
   // Calculate Local Favourite Course Count.
   calculateLocalFavouriteCourseCounts(){
-    this.navbarFavoriteCourseCount = this.getLocalFavouriteCourses().length;
+    console.log("UNDEFINED!!! " + this.getLocalFavoriteCourses().length);
+    this.navbarFavoriteCourseCount = this.getLocalFavoriteCourses().length;
   }
 
   /* ___________________ Cart System ___________________*/

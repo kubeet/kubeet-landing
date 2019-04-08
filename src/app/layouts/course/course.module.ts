@@ -14,7 +14,7 @@ import { CourseListComponent } from "./course-list/course-list.component";
 import { AddCourseComponent } from "./add-course/add-course.component";
 import { CourseDetailComponent } from "./course-detail/course-detail.component";
 import { SharedModule } from "../../shared/shared.module";
-import { FavouriteCoursesComponent } from "./favorite-courses/favorite-courses.component";
+import { FavoriteCoursesComponent } from "./favorite-courses/favorite-courses.component";
 import { CartCoursesComponent } from "./cart-courses/cart-courses.component";
 import { CartCalculatorComponent } from "./cart-calculator/cart-calculator.component";
 
@@ -26,7 +26,7 @@ import { CartCalculatorComponent } from "./cart-calculator/cart-calculator.compo
 		CourseListComponent,
 		AddCourseComponent,
 		CourseDetailComponent,
-		FavouriteCoursesComponent,
+		FavoriteCoursesComponent,
 		CartCoursesComponent,
 		CartCalculatorComponent
 	],

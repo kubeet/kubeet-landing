@@ -5,7 +5,8 @@ import {
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../../shared/services/auth.service";
-import { ProductService } from "../../shared/services/product.service";
+import { CourseService } from "../../shared/services/course.service";
+//import { ProductService } from "../../shared/services/product.service";
 import { TranslateService } from "../../shared/services/translate.service";
 import { ThemeService } from "src/app/shared/services/theme.service";
 declare var $: any;
@@ -21,7 +22,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private router: Router,
-    public productService: ProductService,
+    //public productService: ProductService,
+    public courseService: CourseService,
     public translate: TranslateService,
     private themeService: ThemeService
   ) {

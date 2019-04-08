@@ -22,6 +22,8 @@ _ng generate service shared/services/lesson_
     __src/app/shared/services/lesson.service.ts__
     Created the lesson service to feed components such as course-detail.
 
+_ng generate component shared/components/no-courses-found_
+
 _ng generate component layouts/course/add-course_
     __src/app/layouts/course/add-course/add-course.component.*__
     Created the add-course subcomponent.

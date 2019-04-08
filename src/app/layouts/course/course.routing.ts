@@ -1,5 +1,5 @@
 import { CartCoursesComponent } from './cart-courses/cart-courses.component';
-import { FavouriteCoursesComponent } from './favorite-courses/favorite-courses.component';
+import { FavoriteCoursesComponent } from './favorite-courses/favorite-courses.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { Routes } from '@angular/router';
 import { IndexComponent } from '../../index/index.component';
@@ -19,7 +19,7 @@ export const CourseRoutes: Routes = [
 			},
 			{
 				path: 'favourite-courses',
-				component: FavouriteCoursesComponent
+				component: FavoriteCoursesComponent
 			},
 			{
 				path: 'cart-items',
