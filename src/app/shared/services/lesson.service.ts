@@ -35,7 +35,7 @@ export class LessonService {
 
   // Find a lesson by its ID inside the course.
   getLessonByID(courseKey: string, lessonKey: string){
-    this.lesson = this.db.collection('courses').doc(courseKey).collection('lesson').doc(lessonKey);
+    this.lesson = this.db.collection('courses').doc(courseKey).collection('lessons').doc(lessonKey);
     return this.lesson;
   }
 

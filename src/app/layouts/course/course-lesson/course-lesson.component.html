@@ -1,0 +1,49 @@
+<br>
+<!-- Global Containers -->
+<div class="container" >
+  <div class="row">
+
+    <!-- First Column -->
+    <div class="col-sm-4" *ngIf="loading">
+      <div class="course-image">
+        <!-- Information -->
+        <div class="" style="margin-top:15px">
+          <ul class="list-group mb-3">
+            <!-- Title -->
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Lesson Title</h6>
+              </div>
+              <span class="text-muted" style="color:crimson !important">{{lesson.lessonTitle}}</span>
+            </li>
+            <!-- Duration -->
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Lesson Duration</h6>
+              </div>
+              <span class="text-muted" style="color:crimson !important">{{lesson.lessonDuration}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-sm-8" *ngIf="loading">
+      <div class="product-detail">
+        <h5 class="product-head">Lesson Concepts</h5>
+        <table class="table" cellspacing="0" style="max-height: 28px">
+          <tbody>
+            <tr *ngFor="let concept of concepts">
+              <a [routerLink]="['/courses/course', courseKey, 'lesson', lessonKey, 'concept', concept.$key]">
+                <th scope="row">Concept #{{concept.conceptIndex}}</th>
+                <td>{{concept.conceptTitle}}</td>
+              </a>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

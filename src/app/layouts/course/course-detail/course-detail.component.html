@@ -77,7 +77,7 @@
         <table class="table" cellspacing="0" style="max-height: 28px">
           <tbody>
             <tr *ngFor="let lesson of lessons">
-              <a routerLink="['/courses/course/lessons/lesson/concepts/concept', course.$key, lesson.$key, 0">
+              <a [routerLink]="['/courses/course', courseKey, 'lesson', lesson.$key]">
                 <th scope="row">Lesson #{{lesson.lessonIndex}}</th>
                 <td>{{lesson.lessonTitle}}</td>
               </a>

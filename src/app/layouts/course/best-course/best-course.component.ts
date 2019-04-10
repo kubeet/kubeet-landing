@@ -51,7 +51,7 @@ export class BestCourseComponent implements OnInit {
       (course) => {
         this.loading = false;
         this.bestCourses = [];
-        for (let i=0; i<course.length; i++){
+        for (let i=0; i<2; i++){
           this.courseObject = course[i].payload.doc.data();
           this.courseObject.$key = course[i].payload.doc.id;
           this.bestCourses.push(this.courseObject as Course);

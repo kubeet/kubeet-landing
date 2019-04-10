@@ -5,6 +5,7 @@ import { Lesson } from 'src/app/shared/models/lesson';
 import { CourseService } from 'src/app/shared/services/course.service';
 import { LessonService } from 'src/app/shared/services/lesson.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-detail',
@@ -24,7 +25,7 @@ export class CourseDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private courseService: CourseService,
     private lessonService: LessonService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) { this.course = new Course(); }
 
   // Initialization

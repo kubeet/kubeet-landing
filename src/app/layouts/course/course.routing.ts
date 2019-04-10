@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { IndexComponent } from '../../index/index.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CourseClassroomComponent } from './course-classroom/course-classroom.component';
+import { CourseLessonComponent } from './course-lesson/course-lesson.component';
 
 export const CourseRoutes: Routes = [
 	{
@@ -35,7 +36,11 @@ export const CourseRoutes: Routes = [
 				component: CourseDetailComponent
 			},
 			{
-				path: 'course/:courseID/lessons/:lessonID/concepts/:conceptID',
+				path: 'course/:courseID/lesson/:lessonID',
+				component: CourseLessonComponent
+			},
+			{
+				path: 'course/:courseID/lesson/:lessonID/concept/:conceptID',
 				component: CourseClassroomComponent
 			}
 		]

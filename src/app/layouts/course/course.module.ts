@@ -18,6 +18,7 @@ import { FavoriteCoursesComponent } from "./favorite-courses/favorite-courses.co
 import { CartCoursesComponent } from "./cart-courses/cart-courses.component";
 import { CartCalculatorComponent } from "./cart-calculator/cart-calculator.component";
 import { CourseClassroomComponent } from './course-classroom/course-classroom.component';
+import { CourseLessonComponent } from './course-lesson/course-lesson.component';
 
 @NgModule({
 	imports: [CommonModule, RouterModule.forChild(CourseRoutes), SharedModule, CheckoutModule],
@@ -30,7 +31,8 @@ import { CourseClassroomComponent } from './course-classroom/course-classroom.co
 		FavoriteCoursesComponent,
 		CartCoursesComponent,
 		CartCalculatorComponent,
-		CourseClassroomComponent
+		CourseClassroomComponent,
+		CourseLessonComponent,
 	],
 	exports: [BestCourseComponent]
 })

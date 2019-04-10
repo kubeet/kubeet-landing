@@ -12,6 +12,7 @@ import { CourseService }  from 'src/app/shared/services/course.service';
 import { LessonService }  from 'src/app/shared/services/lesson.service';
 import { ConceptService } from 'src/app/shared/services/concept.service';
 import { ToastrService }  from 'src/app/shared/services/toastr.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-classroom',
@@ -26,8 +27,10 @@ export class CourseClassroomComponent implements OnInit {
   conceptKey: string;
   course:     Course;
   lesson:     Lesson;
-  concepts:   Concept[];
   concept:    Concept;
+  concepts:   Concept[];
+  options: any;
+  loading = false;
 
   // Constructor
   constructor(  
@@ -36,10 +39,30 @@ export class CourseClassroomComponent implements OnInit {
     private courseService:  CourseService,
     private lessonService:  LessonService,
     private conceptService: ConceptService,
-  ) { }
+    private sanitizer:      DomSanitizer
+  ) {
+    this.course = new Course();
+    this.lesson = new Lesson();
+    this.concept = new Concept();
+    this.concepts = [];
+  }
 
   // Initialization
   ngOnInit() {
+    this.options = {
+			dots: false,
+			responsive: {
+				'0': { items: 1, margin: 5 },
+				'430': { items: 2, margin: 5 },
+				'550': { items: 3, margin: 5 },
+				'670': { items: 4, margin: 5 }
+			},
+			autoplay: true,
+			loop: true,
+			autoplayTimeout: 3000,
+			lazyLoad: true
+    };
+
     this.sub = this.route.params.subscribe((params) => {
       // Storing the parameters given by the router.
       this.courseKey  = params['courseID'];
@@ -49,7 +72,9 @@ export class CourseClassroomComponent implements OnInit {
       // Filling the model variables.
       this.getCourseDetails();
       this.getLessonDetails();
-      this.getCourseDetails();
+      this.getAllConcepts();
+      this.getConceptDetails();
+      this.loading = true;
     })
   }
 
@@ -88,7 +113,6 @@ export class CourseClassroomComponent implements OnInit {
 
   // Concept Details if possible (conceptID is not 0)
   getConceptDetails(){
-    if (this.conceptKey === '0') return;
     const conc = this.conceptService.getConceptByID(this.courseKey, this.lessonKey, this.conceptKey);
 
     conc.snapshotChanges().subscribe(
@@ -104,11 +128,11 @@ export class CourseClassroomComponent implements OnInit {
   // Obtain all concepts.
   getAllConcepts(){
     const conc = this.conceptService.getConcepts(this.courseKey, this.lessonKey);
+    this.concepts = [];
     var conceptAux: Concept;
 
     conc.snapshotChanges().subscribe(
       (concept) => {
-        this.concepts = [];
         for (let i=0; i<concept.length; i++){
           conceptAux      = concept[i].payload.doc.data();
           conceptAux.$key = concept[i].payload.doc.id;
@@ -119,5 +143,10 @@ export class CourseClassroomComponent implements OnInit {
         this.toastrService.error('Error while fetching Concepts.', error);
       }
     );
+  }
+
+  // Sanitized url to prevent attacks
+  videoUrl() : SafeResourceUrl{
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.concept.conceptVideo);
   }
 }
