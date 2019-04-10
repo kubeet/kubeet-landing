@@ -52,7 +52,7 @@ export class CourseDetailComponent implements OnInit {
   }
 
   // Add course to cart.
-  addToCart(course: Course){
+  addCourseToCart(course: Course){
     this.courseService.addCourseToCart(course);
   }
 
