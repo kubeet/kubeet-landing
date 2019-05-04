@@ -14,8 +14,6 @@ export class CourseListComponent implements OnInit {
   courseList: Course[];
   courseObject: Course;
   loading = false;
-  brands = ['All', 'Programming', 'Web Development'];
-  selectedBrand = 'All';
   page = 1;
   
   // Constructor

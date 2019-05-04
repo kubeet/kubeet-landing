@@ -19,10 +19,10 @@
     <!-- Brands System -->
     <div class="col-md-3">
       <div class="form-group">
-        <label for="brand_select">By Category:</label>
+        <!-- <label for="brand_select">By Category:</label>
         <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand">
           <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
-        </select>
+        </select> -->
       </div>
       <ul class="list-group">
         <li class="list-group-item">Cras justo odio</li>
@@ -42,7 +42,7 @@
         <div class="row" *ngIf="!loading">
 
           <!-- List of Courses -->
-          <div class="col-sm-4 mb-2" *ngFor="let course of courseList | filterByBrand: selectedBrand | paginate: { itemsPerPage: 6, currentPage: page }">
+          <div class="col-sm-4 mb-2" *ngFor="let course of courseList | paginate: { itemsPerPage: 6, currentPage: page }">
             <div class="item">
               <div class=" mb-r">
                 <!--Card-->
