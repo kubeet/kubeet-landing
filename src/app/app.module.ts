@@ -13,6 +13,8 @@ import { UserModule } from './layouts/user/user.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgxSoapModule } from 'ngx-soap';
+import { MessagingService } from './shared/messaging.service';
+import { AngularFireMessaging } from '@angular/fire/messaging';
 
 
 /* to load and set en.json as the default application language */
@@ -36,6 +38,8 @@ export function setupTranslateFactory(service: TranslateService): Function {
 	],
 	providers: [
 		TranslateService,
+		MessagingService,
+		AngularFireMessaging,	
 		
 		{
 			provide: APP_INITIALIZER,
