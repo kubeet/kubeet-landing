@@ -6,6 +6,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
 import { LessonService } from 'src/app/shared/services/lesson.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -26,6 +27,7 @@ export class CourseDetailComponent implements OnInit {
     private courseService: CourseService,
     private lessonService: LessonService,
     private toastrService: ToastrService,
+    private authService: AuthService
   ) { this.course = new Course(); }
 
   // Initialization
