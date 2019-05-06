@@ -1,10 +1,8 @@
 <br>
 <!-- Global Containers -->
 <div class="container">
-  <div class="row">
-
-    <!-- Admin Add a Course button -->
-  <div class="row" *ngIf="authService.isAdmin()">
+   <!-- Admin Add a Course button -->
+   <div class="row" *ngIf="authService.isAdmin()">
       <div class="col-sm">
         <div class="float-right">
           <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
@@ -13,6 +11,8 @@
         </div>
       </div>
     </div>
+
+  <div class="row">
 
     <!-- First Column -->
     <div class="col-sm-4">
@@ -100,4 +100,4 @@
 
   </div>
 </div>
-<app-add-lesson></app-add-lesson>
+<app-add-lesson [courseKey]='courseKey'></app-add-lesson>

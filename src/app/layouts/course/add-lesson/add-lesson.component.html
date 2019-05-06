@@ -25,6 +25,16 @@
                   Valid title is required.
                 </div>
               </div>
+
+              <!-- Lesson Index -->
+            <div class="col-md-6 mb-3">
+                <label for="lessonTitle">Lesson Title</label>
+                <input type="number" class="form-control" id="lessonIndex" name="lessonIndex" [(ngModel)]="lesson.lessonInddex" placeholder="Lesson Index"
+                  value="" required>
+                <div class="invalid-feedback">
+                  Valid index is required.
+                </div>
+            </div>
             </div>
   
             <!-- Lesson Description -->
@@ -37,16 +47,16 @@
             </div>
              <!-- Lesson duration# -->
           <div class="mb-3">
-              <label for="lessonDescription">Lesson Description
+              <label for="lessonDescription">Lesson Duration
                 <span class="text-muted">(Optional)</span>
               </label>
-              <textarea type="text" class="form-control" id="lessonDescription" placeholder="Lesson Description" name="lessonDescription"
-                [(ngModel)]="lesson.lessonDescription"></textarea>
+              <textarea type="text" class="form-control" id="lessonDuration" placeholder="Lesson Duration" name="lessonDuration"
+                [(ngModel)]="lesson.lessonDuration"></textarea>
             </div>
             <!-- Lesson index type number# -->
-            <div class="col-md-6 mb-3">
+            <div class="mb-3">
                 <label for="lessonCategory">Lesson Category</label>
-                <input type="number" class="form-control" id="lessonCategory" name="lessonCategory" [(ngModel)]="lesson.lessonCategory"
+                <input type="text" class="form-control" id="lessonCategory" name="lessonCategory" [(ngModel)]="lesson.lessonCategory"
                   placeholder="Lesson Category" value="" required>
                 <div class="invalid-feedback">
                   Valid category is required.

@@ -30,7 +30,6 @@ export class CourseListComponent implements OnInit {
 
   // Gets all courses available.
   getAllCourses() {
-    this.loading = true;
     const cour = this.courseService.getCourses();
     cour.snapshotChanges().subscribe(
       (course) => {
