@@ -1,13 +1,13 @@
 <br>
 <!-- Global Container -->
-<div class="container">
+<div class="container" *ngIf="loading">
 
   <!-- Admin Add a Course button -->
   <div class="row" *ngIf="authService.isAdmin()">
     <div class="col-sm">
       <div class="float-right">
         <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
-          Add Lesson
+          Add Course
         </button>
       </div>
     </div>
@@ -36,10 +36,10 @@
       <div class="container">
 
         <!-- App Cart System-->
-        <app-card-loader [loop]="3" [height]="800" *ngIf="loading"></app-card-loader>
+        <app-card-loader [loop]="3" [height]="800" *ngIf="!loading"></app-card-loader>
 
         <!-- Each Course -->
-        <div class="row" *ngIf="!loading">
+        <div class="row" *ngIf="loading">
 
           <!-- List of Courses -->
           <div class="col-sm-4 mb-2" *ngFor="let course of courseList | paginate: { itemsPerPage: 6, currentPage: page }">
@@ -109,4 +109,4 @@
     </div>
   </div>
 </div>
-<app-add-course [courseKey]='courseKey'></app-add-course>
+<app-add-course></app-add-course>
