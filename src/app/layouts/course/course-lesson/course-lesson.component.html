@@ -1,19 +1,19 @@
 <br>
 <!-- Global Containers -->
 <div class="container" >
-  <div class="row">
 
-    <!-- Admin Add a Course button -->
-  <div class="row" *ngIf="authService.isAdmin()">
+   <!-- Admin Add a Course button -->
+   <div class="row" *ngIf="authService.isAdmin()">
       <div class="col-sm">
         <div class="float-right">
           <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
-            Add Lesson
+            Add Concept
           </button>
         </div>
       </div>
     </div>
 
+  <div class="row">
     <!-- First Column -->
     <div class="col-sm-4" *ngIf="loading">
       <div class="course-image">
@@ -58,3 +58,4 @@
 
   </div>
 </div>
+<app-add-concept [courseKey]='courseKey' [lessonKey]='lessonKey'></app-add-concept>

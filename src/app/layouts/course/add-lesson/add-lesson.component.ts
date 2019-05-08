@@ -29,7 +29,7 @@ export class AddLessonComponent implements OnInit {
 
   // Create a Lesson
   createLesson(lessonForm: NgForm) {
-    lessonForm.value['lessonID'] = 'COUR_' + shortID.generate();
+    lessonForm.value['lessonID'] = 'LESS_' + shortID.generate();
     
     this.lessonService.createLesson(this.courseKey, lessonForm.value);
     this.lesson = new Lesson();

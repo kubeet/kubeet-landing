@@ -7,7 +7,7 @@ import { CourseService } from 'src/app/shared/services/course.service';
 import { LessonService } from 'src/app/shared/services/lesson.service';
 import { ConceptService} from 'src/app/shared/services/concept.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
-
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-course-lesson',
@@ -30,7 +30,8 @@ export class CourseLessonComponent implements OnInit {
     private courseService: CourseService,
     private lessonService: LessonService,
     private conceptService: ConceptService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private authService: AuthService
   ) {
     this.course = new Course();
     this.lesson = new Lesson();

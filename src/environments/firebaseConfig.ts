@@ -12,5 +12,4 @@ databaseURL: "https://kubeet.firebaseio.com",
 projectId: "kubeet",
 storageBucket: "kubeet.appspot.com",
 messagingSenderId: "348687452553"
-
 };
