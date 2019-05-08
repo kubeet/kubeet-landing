@@ -50,6 +50,9 @@
                 <th scope="row">Concept #{{concept.conceptIndex}}</th>
                 <td>{{concept.conceptTitle}}</td>
               </a>
+              <a placement="top" mdbTooltip="Remove Concept" container="body" *ngIf="authService.isAdmin()" (click)="removeConcept(concept.$key)">
+                <i class="fa fa-trash"></i>
+              </a>
             </tr>
           </tbody>
         </table>

@@ -59,7 +59,7 @@ export class ConceptService {
     }
   
     // Deletes a Concept
-    deleteConcept(key: string) {
-        //	this.products.remove(key);
+    deleteConcept(courseKey: string, lessonKey: string, conceptKey: string) {
+        this.database.collection("courses").doc(courseKey).collection("lessons").doc(lessonKey).collection("concepts").doc(conceptKey).delete();
     }
 }

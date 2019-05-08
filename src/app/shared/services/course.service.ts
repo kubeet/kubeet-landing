@@ -53,8 +53,8 @@ export class CourseService {
   }
   
   // Deletes a Course
-  deleteCourse(key: string) {
-    //	this.products.remove(key);
+  deleteCourse(courseKey: string) {
+    this.db.collection("courses").doc(courseKey).delete();
   }
 
   /* ___________________ Favourite System ___________________*/

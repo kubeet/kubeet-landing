@@ -45,8 +45,8 @@ export class LessonService {
   }
   
   // Deletes a Lesson
-  deleteLesson(key: string) {
-    //	this.products.remove(key);
+  deleteLesson(courseKey: string, lessonKey: string) {
+    this.db.collection("courses").doc(courseKey).collection("lessons").doc(lessonKey).delete();
   }
   
 }

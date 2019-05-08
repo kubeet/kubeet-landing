@@ -104,4 +104,9 @@ export class CourseLessonComponent implements OnInit {
     );
   }
 
+  // Removes a Concept
+  removeConcept(key: string){
+    this.conceptService.deleteConcept(this.courseKey, this.lessonKey, key);
+  }
+
 }

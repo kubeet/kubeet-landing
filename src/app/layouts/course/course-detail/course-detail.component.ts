@@ -83,4 +83,9 @@ export class CourseDetailComponent implements OnInit {
     )
   }
 
+  // Removes a Lesson
+  removeLesson(key: string){
+    this.lessonService.deleteLesson(this.courseKey, key);
+  }
+
 }
