@@ -75,31 +75,33 @@
           </tbody>
         </table>
       </div>
+
+      <div class="product-detail">
+          <h5 class="product-head">Course Lessons</h5>
+          <table class="table" cellspacing="0" style="max-height: 28px">
+            <tbody>
+              <tr *ngFor="let lesson of lessons">
+                <a [routerLink]="['/courses/course', courseKey, 'lesson', lesson.$key]">
+                  <th scope="row">Lesson #{{lesson.lessonIndex}}</th>
+                  <td>{{lesson.lessonTitle}}</td>
+                </a>
+                <a placement="top" mdbTooltip="Remove Lesson" container="body" *ngIf="authService.isAdmin()" (click)="removeLesson(lesson.$key)">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
 
     <br><br>
     <!-- List of Lessons -->
-    <div class="col-sm-4">
-    </div>
+    <!-- <div class="col-sm-4">
+    </div> -->
 
-    <div class="col-sm-8">
-      <div class="product-detail">
-        <h5 class="product-head">Course Lessons</h5>
-        <table class="table" cellspacing="0" style="max-height: 28px">
-          <tbody>
-            <tr *ngFor="let lesson of lessons">
-              <a [routerLink]="['/courses/course', courseKey, 'lesson', lesson.$key]">
-                <th scope="row">Lesson #{{lesson.lessonIndex}}</th>
-                <td>{{lesson.lessonTitle}}</td>
-              </a>
-              <a placement="top" mdbTooltip="Remove Lesson" container="body" *ngIf="authService.isAdmin()" (click)="removeLesson(lesson.$key)">
-                <i class="fa fa-trash"></i>
-              </a>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <!-- <div class="col-sm-8">
+      
+    </div> -->
 
   </div>
 </div>
