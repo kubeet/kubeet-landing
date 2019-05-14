@@ -92,6 +92,7 @@ export class CourseLessonComponent implements OnInit {
 
     conc.snapshotChanges().subscribe(
       (concept) => {
+        this.concepts = [];
         for (let i=0; i<concept.length; i++){
           conceptAux      = concept[i].payload.doc.data();
           conceptAux.$key = concept[i].payload.doc.id;

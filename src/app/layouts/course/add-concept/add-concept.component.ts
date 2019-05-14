@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Concept } from 'src/app/shared/models/concept';
 import { ConceptService } from 'src/app/shared/services/concept.service';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { NgForm } from '@angular/forms';
 
 // Declaration of helpful items.
@@ -22,13 +23,39 @@ export class AddConceptComponent implements OnInit {
   @Input() lessonKey: string;
 
   // Obtain the ConceptService
-  constructor(private conceptService: ConceptService) { }
+  constructor(
+    private conceptService: ConceptService,
+    private angularStorage: AngularFireStorage
+    ) { }
 
   ngOnInit() {
   }
 
-  // Create a Lesson
+  // Variables
+  fileArchive;
+  fileName    = '';
+  fileUpload  = false;
+
+  // Create a Concept
   createConcept(conceptForm: NgForm) {
+    let file = this.fileArchive;
+    let ref  = this.angularStorage.ref(this.fileName);
+    let task = this.angularStorage.upload(this.fileName, this.fileArchive);
+    ref.getDownloadURL().subscribe(
+      (URL) => {
+        conceptForm.value['conceptFile'] = URL;
+        this.fileUpload = true;
+      },
+      (error) => {
+        console.log("AAAAAAA");
+        console.log(error);
+      },
+      () => this.addConceptValues(conceptForm)
+    );
+  }
+
+  // Create a Concept helper
+  addConceptValues(conceptForm: NgForm){
     conceptForm.value['conceptID'] = 'CONC_' + shortID.generate();
 
     this.conceptService.createConcept(this.courseKey, this.lessonKey, conceptForm.value);
@@ -38,5 +65,14 @@ export class AddConceptComponent implements OnInit {
     toastr.success('Lesson' + conceptForm.value['conceptName'] + 'was added successfully.', 'Concept Creation');
   }
   
+  // Get the File to Upload
+  getFile(event){
+    if (event.target.files.length > 0){
+      for (let i=0; i<event.target.files.length; i++){
+        this.fileName    = event.target.files[i].name;
+        this.fileArchive = event.target.files[i];
+      }
+    }
+  }
 }
 

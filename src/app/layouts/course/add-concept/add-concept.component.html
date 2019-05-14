@@ -45,6 +45,18 @@
             <textarea type="text" class="form-control" id="conceptVideo" placeholder="Concept Video" name="conceptVideo"
               [(ngModel)]="concept.conceptVideo"></textarea>
           </div>
+
+          <!-- Concept File -->
+          <div class="mb-3">
+            <label for="conceptFile">Concept File</label>
+            <br/>
+            <input class="file-input" type="file" (change)="getFile($event)">
+            <span class="file-cta">
+              Choose a file...
+            </span>
+            <br/>
+
+          </div>
                     
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Add Concept</button>
