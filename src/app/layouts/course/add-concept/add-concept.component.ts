@@ -35,23 +35,32 @@ export class AddConceptComponent implements OnInit {
   fileArchive;
   fileName    = '';
   fileUpload  = false;
+  fileNumber  = 0;
 
   // Create a Concept
   createConcept(conceptForm: NgForm) {
-    let file = this.fileArchive;
-    let ref  = this.angularStorage.ref(this.fileName);
-    let task = this.angularStorage.upload(this.fileName, this.fileArchive);
-    ref.getDownloadURL().subscribe(
-      (URL) => {
-        conceptForm.value['conceptFile'] = URL;
-        this.fileUpload = true;
-      },
-      (error) => {
-        console.log("AAAAAAA");
-        console.log(error);
-      },
-      () => this.addConceptValues(conceptForm)
-    );
+    if (this.fileNumber > 0){
+      let file = this.fileArchive;
+      let ref  = this.angularStorage.ref(this.fileName);
+      let task = this.angularStorage.upload(this.fileName, this.fileArchive);
+      ref.getDownloadURL().subscribe(
+        (URL) => {
+          conceptForm.value['conceptFile'] = URL;
+          conceptForm.value['conceptVideo'] = '';
+          conceptForm.value['conceptType'] = 'File'
+          this.fileUpload = true;
+        },
+        (error) => {
+          console.log("AAAAAAA");
+          console.log(error);
+        },
+        () => this.addConceptValues(conceptForm)
+      );
+    } else {
+      conceptForm.value['conceptFile'] = '';
+      conceptForm.value['conceptType'] = 'Video'
+      this.addConceptValues(conceptForm);
+    }
   }
 
   // Create a Concept helper
@@ -72,6 +81,7 @@ export class AddConceptComponent implements OnInit {
         this.fileName    = event.target.files[i].name;
         this.fileArchive = event.target.files[i];
       }
+      this.fileNumber = event.target.files.length;
     }
   }
 }

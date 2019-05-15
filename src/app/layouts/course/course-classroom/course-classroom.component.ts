@@ -151,6 +151,9 @@ export class CourseClassroomComponent implements OnInit {
 
   // Sanitized url to prevent attacks
   videoUrl() : SafeResourceUrl{
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.concept.conceptVideo);
+    if (this.concept.conceptType === 'File')
+      return this.sanitizer.bypassSecurityTrustResourceUrl(this.concept.conceptFile);
+    else
+      return this.sanitizer.bypassSecurityTrustResourceUrl(this.concept.conceptVideo);
   }
 }

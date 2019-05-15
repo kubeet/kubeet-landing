@@ -37,6 +37,8 @@
           </div>
           </div>
 
+          Select one of the following: <br/><br/>
+
           <!-- Concept Video URL -->
           <div class="mb-3">
             <label for="conceptVideo">Concept Video
@@ -48,7 +50,9 @@
 
           <!-- Concept File -->
           <div class="mb-3">
-            <label for="conceptFile">Concept File</label>
+            <label for="conceptFile">Concept File
+                <span class="text-muted">(Optional)</span>
+            </label>
             <br/>
             <input class="file-input" type="file" (change)="getFile($event)">
             <span class="file-cta">

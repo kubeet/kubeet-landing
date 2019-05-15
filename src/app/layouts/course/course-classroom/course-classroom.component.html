@@ -40,8 +40,9 @@
           </svg>
       </div>  
     </div>
-      <div class="main" *ngIf="loading">
-        <iframe width="640" height="480" [src]="videoUrl()"></iframe>
-      </div>
+    <!-- iFrame decision -->
+    <div class="main" *ngIf="loading">
+      <iframe width="640" height="480" [src]="videoUrl()"></iframe>
+    </div>
   </div>
 </div>
