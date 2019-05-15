@@ -138,6 +138,10 @@ export class CourseClassroomComponent implements OnInit {
           conceptAux.$key = concept[i].payload.doc.id;
           this.concepts.push(conceptAux);
         }
+        this.concepts.sort(function(obj1, obj2) {
+          // Ascending: first age less than the previous
+          return obj1.conceptIndex - obj2.conceptIndex;
+        });
       },
       (error) => {
         this.toastrService.error('Error while fetching Concepts.', error);

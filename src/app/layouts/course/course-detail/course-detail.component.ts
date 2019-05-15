@@ -76,6 +76,10 @@ export class CourseDetailComponent implements OnInit {
           this.lessonObject.$key = lesson[i].payload.doc.id;
           this.lessons.push(this.lessonObject);
         }
+        this.lessons.sort(function(obj1, obj2) {
+          // Ascending: first age less than the previous
+          return obj1.lessonIndex - obj2.lessonIndex;
+        });
       },
       (error) => {
         this.toastrService.error('Error while fetching Lessons', error);
