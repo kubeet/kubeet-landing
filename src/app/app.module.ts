@@ -16,6 +16,7 @@ import { NgxSoapModule } from 'ngx-soap';
 import { MessagingService } from './shared/messaging.service';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AsyncPipe } from '../../node_modules/@angular/common';
 
 
 /* to load and set en.json as the default application language */
@@ -40,6 +41,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 	providers: [
 		TranslateService,
 		MessagingService,
+		AsyncPipe,
 		AngularFireMessaging,
 		AngularFireStorage,
 		
