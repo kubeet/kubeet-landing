@@ -17,6 +17,12 @@
     <!-- First Column -->
     <div class="col-sm-4" *ngIf="loading">
       <div class="course-image">
+
+        <!-- Image -->
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+            <img [src]="course.courseImage" [alt]="course.courseTitle" width="100%" class="img-fluid rounded">
+        </div>
+
         <!-- Information -->
         <div class="" style="margin-top:15px">
           <ul class="list-group mb-3">
@@ -40,8 +46,46 @@
     </div>
 
     <!-- Second Column -->
-    <div class="col-sm-8" *ngIf="loading">
-      <div class="product-detail">
+    <div class="col-sm-8">
+        <div class="product-detail">
+          <h5 class="product-head">Lesson Details</h5>
+          <table class="table" cellspacing="0" style="max-height: 28px">
+            <tbody>
+              <tr>
+                <th scope="row">Lesson Title</th>
+                <td>{{lesson.lessonTitle}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Lesson Description</th>
+                <td>{{lesson.lessonDescription}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Lesson ID</th>
+                <td>{{lesson.lessonID}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    <!-- Bottom Column -->
+    <div class="row" *ngIf="loading">
+       <!-- List of Lessons -->
+       <div class="col-sm-4 mb-2 item mb-r card card-cascade wider card-body text-center no-padding" *ngFor="let concept of concepts">
+          <!--Card content-->
+          <p class="card-title"><strong>
+              <a [routerLink]="['/courses/course', courseKey, 'lesson', lessonKey, 'concept', concept.$key]">
+                {{ concept.conceptTitle }}
+              </a>
+          </strong></p>
+          <p class="card-text">{{ lesson.lessonDescription }}</p>
+          <!--Card footer-->
+          <div class="card-footer">
+            <span class="left">Concept</span>
+            <span class="right"># {{ concept.conceptIndex }}</span>
+          </div>
+      </div>
+
+      <!-- <div class="product-detail">
         <h5 class="product-head">Lesson Concepts</h5>
         <table class="table" cellspacing="0" style="max-height: 28px">
           <tbody>
@@ -56,7 +100,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
     </div>
 
   </div>

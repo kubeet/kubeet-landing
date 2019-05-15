@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <!-- Second Column -->
+    <!-- Bottom Column -->
     <div class="col-sm-8">
       <div class="product-detail">
         <h5 class="product-head">Course Details</h5>
@@ -76,32 +76,25 @@
         </table>
       </div>
 
-      <div class="product-detail">
-          <h5 class="product-head">Course Lessons</h5>
-          <table class="table" cellspacing="0" style="max-height: 28px">
-            <tbody>
-              <tr *ngFor="let lesson of lessons">
+      <!-- Course Lessons -->
+      <div class="row">
+        <!-- List of Lessons -->
+        <div class="col-sm-4 mb-2 item mb-r card card-cascade wider card-body text-center no-padding" *ngFor="let lesson of lessons">
+            <!--Card content-->
+            <p class="card-title"><strong>
                 <a [routerLink]="['/courses/course', courseKey, 'lesson', lesson.$key]">
-                  <th scope="row">Lesson #{{lesson.lessonIndex}}</th>
-                  <td>{{lesson.lessonTitle}}</td>
+                  {{ lesson.lessonTitle }}
                 </a>
-                <a placement="top" mdbTooltip="Remove Lesson" container="body" *ngIf="authService.isAdmin()" (click)="removeLesson(lesson.$key)">
-                  <i class="fa fa-trash"></i>
-                </a>
-              </tr>
-            </tbody>
-          </table>
+            </strong></p>
+            <p class="card-text">{{ lesson.lessonDescription }}</p>
+            <!--Card footer-->
+            <div class="card-footer">
+              <span class="left">Lesson</span>
+              <span class="right"># {{ lesson.lessonIndex }}</span>
+            </div>
         </div>
+      </div>
     </div>
-
-    <br><br>
-    <!-- List of Lessons -->
-    <!-- <div class="col-sm-4">
-    </div> -->
-
-    <!-- <div class="col-sm-8">
-      
-    </div> -->
 
   </div>
 </div>
