@@ -10,14 +10,16 @@
   <!-- Main Menu-->
   <div style="overflow:auto">
     <!-- Concepts List -->
-    <div class="menu" *ngIf="loading">
-        <div style="margin-top: 15px;margin-left: 15px;
-        border-style: none;background-color:#961254;
+    <div class="menu" *ngIf="loading" style=" width:20%">
+        <div style="margin-top: 0px;
+        margin-left: 0px;
+        border-style: none;background-color:#e91e63;
         padding:15px;text-align:center;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        font-family: Ubuntu, sans-serif,helvetica neue,Helvetica,Arial,sans-serif;color: rgb(236, 233, 233);">
-            <h1>{{concept.conceptTitle}}</h1>
+        font-family: Ubuntu, sans-serif,helvetica neue,Helvetica,Arial,sans-serif;color: rgb(236, 233, 233);"
+        class="ng-tns-c0-0">
+            <h1 style="font-size: 1.5rem;" >{{concept.conceptTitle}}</h1>
           </div>
-      <h3 style="color:#96125400">Lista de Conceptos</h3>
+      <h3 style="color:#96125400; display: none;">Lista de Conceptos</h3>
       <div *ngFor="let concept of concepts" style=" text-align:left; background-color:#961254;">
         <a [routerLink]="['/courses/course', courseKey, 'lesson', lessonKey, 'concept', concept.$key]" href="javascript:;">
           <svg class="icon-arrow before">
@@ -40,9 +42,8 @@
           </svg>
       </div>  
     </div>
-    <!-- iFrame decision -->
-    <div class="main" *ngIf="loading">
-      <iframe width="640" height="480" [src]="videoUrl()"></iframe>
-    </div>
+      <div class="main" *ngIf="loading" style="width: 80%;">
+        <iframe width="640" height="480" [src]="videoUrl()" style="width: -moz-available"></iframe>
+      </div>
   </div>
 </div>
