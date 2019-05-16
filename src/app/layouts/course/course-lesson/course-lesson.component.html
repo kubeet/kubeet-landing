@@ -80,8 +80,12 @@
           <p class="card-text">{{ lesson.lessonDescription }}</p>
           <!--Card footer-->
           <div class="card-footer">
-            <span class="left">Concept</span>
-            <span class="right"># {{ concept.conceptIndex }}</span>
+            <span class="left">Concept {{ concept.conceptIndex }}</span>
+            <span class="right">
+              <a placement="top" mdbTooltip="Remove Concept" container="body" *ngIf="authService.isAdmin()" (click)="removeConcept(concept.$key)">
+                <i class="fa fa-trash"></i>
+              </a>
+            </span>
           </div>
       </div>
 

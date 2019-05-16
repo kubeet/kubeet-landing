@@ -89,8 +89,12 @@
             <p class="card-text">{{ lesson.lessonDescription }}</p>
             <!--Card footer-->
             <div class="card-footer">
-              <span class="left">Lesson</span>
-              <span class="right"># {{ lesson.lessonIndex }}</span>
+              <span class="left">Lesson #{{ lesson.lessonIndex }}</span>
+              <span class="right">
+                <a placement="top" mdbTooltip="Remove Lesson" container="body" *ngIf="authService.isAdmin()" (click)="removeLesson(lesson.$key)">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </span>
             </div>
         </div>
       </div>
