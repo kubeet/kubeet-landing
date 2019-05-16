@@ -57,6 +57,8 @@ export class AddConceptComponent implements OnInit {
         () => this.addConceptValues(conceptForm)
       );
     } else {
+      conceptForm.value['conceptVideo'] = conceptForm.value['conceptVideo'].replace('youtu.be/', 'youtube.com/embed/');
+      conceptForm.value['conceptVideo'] = conceptForm.value['conceptVideo'].replace('watch?v=', 'embed\/');
       conceptForm.value['conceptFile'] = '';
       conceptForm.value['conceptType'] = 'Video'
       this.addConceptValues(conceptForm);
