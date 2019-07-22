@@ -12,9 +12,13 @@ export const AppRoutes: Routes = [
 				loadChildren: './index/index.module#IndexModule'
 			},
 			{
-				path: 'products',
-				loadChildren: './layouts/product/product.module#ProductModule'
+				path: 'courses',
+				loadChildren: './layouts/course/course.module#CourseModule'
 			},
+			// {
+			// 	path: 'products',
+			// 	loadChildren: './layouts/product/product.module#ProductModule'
+			// },
 			{
 				path: 'users',
 				loadChildren: './layouts/user/user.module#UserModule'

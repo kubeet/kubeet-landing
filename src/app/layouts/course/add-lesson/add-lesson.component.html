@@ -1,0 +1,64 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+  
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Lesson</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <!-- Body -->
+        <div class="modal-body">
+          <form class="needs-validation" #addLessonForm="ngForm" (ngSubmit)="createLesson(addLessonForm)">
+            <!-- Lesson Title & Category -->
+            <div class="row">
+              <!-- Lesson Title -->
+              <div class="col-md-6 mb-3">
+                <label for="lessonTitle">Lesson Title</label>
+                <input type="text" class="form-control" id="lessonName" name="lessonTitle" [(ngModel)]="lesson.lessonTitle" placeholder="Lesson Title"
+                  value="" required>
+                <div class="invalid-feedback">
+                  Valid title is required.
+                </div>
+              </div>
+
+              <!-- Lesson Index -->
+            <div class="col-md-6 mb-3">
+                <label for="lessonIndex">Lesson Title</label>
+                <input type="number" class="form-control" id="lessonIndex" name="lessonIndex" [(ngModel)]="lesson.lessonInddex" placeholder="Lesson Index"
+                  value="" required>
+                <div class="invalid-feedback">
+                  Valid index is required.
+                </div>
+            </div>
+            </div>
+  
+            <!-- Lesson Description -->
+            <div class="mb-3">
+              <label for="lessonDescription">Lesson Description
+                <span class="text-muted">(Optional)</span>
+              </label>
+              <textarea type="text" class="form-control" id="lessonDescription" placeholder="Lesson Description" name="lessonDescription"
+                [(ngModel)]="lesson.lessonDescription"></textarea>
+            </div>
+             <!-- Lesson duration# -->
+          <div class="mb-3">
+              <label for="lessonDescription">Lesson Duration
+                <span class="text-muted">(Optional)</span>
+              </label>
+              <textarea type="text" class="form-control" id="lessonDuration" placeholder="Lesson Duration" name="lessonDuration"
+                [(ngModel)]="lesson.lessonDuration"></textarea>
+            </div> 
+            
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Add Lesson</button>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </div>

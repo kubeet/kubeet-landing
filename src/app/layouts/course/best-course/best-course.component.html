@@ -1,0 +1,76 @@
+<!--Section: Courses v.2-->
+<section class="section pb-3">
+    <!-- Header -->
+    <div class="row">
+      <div class="col-md-6">
+        <blockquote class="blockquote float-left bq-primary">
+          <h3 class="bq-title">{{translate.data["BESTCOURSES"] | translate}}</h3>
+        </blockquote>
+      </div>
+      <div class="col-md-6">
+        <a class="btn btn-default float-right" [routerLink]="[ '/courses/all-courses' ]">{{translate.data["VIEWALL"] |
+          translate}}</a>
+      </div>
+    </div>
+  
+    <!-- Loading icon -->
+    <div *ngIf="loading">
+      <app-card-loader [loop]="4" [height]="500"></app-card-loader>
+    </div>
+  
+    <!-- Carousel of objects -->
+    <owl-carousel *ngIf="!loading" [options]="options" [items]="bestCourses" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+      <!--First column-->
+      <div class="item" style="padding:20px" *ngFor="let course of bestCourses;let i = index">
+        <div class=" mb-r">
+  
+          <!--Card-->
+          <div class="card card-cascade wider">
+  
+            <!--Card image-->
+            <a [routerLink]="['/courses/course', course.$key]">
+              <div class="view overlay hm-white-slight">
+                <img [src]="course.courseImage" class="img-fluid" alt="" width="360px" height="640px">
+                <a>
+                  <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                </a>
+              </div>
+            </a>
+            <!--/.Card image-->
+  
+            <!--Card content-->
+            <div class="card-body text-center no-padding">
+              <!--Category & Title-->
+              <a href="" class="text-muted">
+                <h5>{{ course.courseCategory }}</h5>
+              </a>
+              <h5 class="card-title">
+                <strong>
+                  <a [routerLink]="['/courses/course', course.$key]">{{ course.courseTitle }}</a>
+                </strong>
+              </h5>
+  
+              <!--Description-->
+              <p class="card-text">{{ course.courseDescription }}
+              </p>
+  
+              <!--Card footer-->
+              <div class="card-footer">
+                <span class="left">₹ {{ course.coursePrice }}</span>
+                <span class="right">
+                  <a placement="top" mdbTooltip="Add to Wishlist" container="body">
+                    <i class="fa fa-heart"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <!--/.Card content-->
+          </div>
+          <!--/.Card-->
+        </div>
+        <!--/First column-->
+      </div>
+    </owl-carousel>
+  </section>
+  <!--Section: Courses v.2-->
+  

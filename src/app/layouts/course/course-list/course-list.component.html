@@ -1,0 +1,112 @@
+<br>
+<!-- Global Container -->
+<div class="container" *ngIf="loading">
+
+  <!-- Admin Add a Course button -->
+  <div class="row" *ngIf="authService.isAdmin()">
+    <div class="col-sm">
+      <div class="float-right">
+        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#exampleModalLong">
+          Add Course
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row Container -->
+  <div class="row">
+
+    <!-- Brands System -->
+    <div class="col-md-3">
+      <div class="form-group">
+        <!-- <label for="brand_select">By Category:</label>
+        <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedBrand">
+          <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
+        </select> -->
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+      </ul>
+    </div>
+
+    <!-- Col Container -->
+    <div class="col-md-9">
+      <div class="container">
+
+        <!-- App Cart System-->
+        <app-card-loader [loop]="3" [height]="800" *ngIf="!loading"></app-card-loader>
+
+        <!-- Each Course -->
+        <div class="row" *ngIf="loading">
+
+          <!-- List of Courses -->
+          <div class="col-sm-4 mb-2" *ngFor="let course of courseList | paginate: { itemsPerPage: 6, currentPage: page }">
+            <div class="item">
+              <div class=" mb-r">
+                <!--Card-->
+                <div class="card card-cascade wider">
+                  <!--Card image-->
+                  <a [routerLink]="['/courses/course', course.$key]">
+                    <div class="view overlay hm-white-slight">
+                      <img [src]="course.courseImage" class="img-fluid" alt="" width="360px" height="640px">
+                      <a>
+                        <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                      </a>
+                    </div>
+                  </a>
+                  <!--/.Card image-->
+                  <!--Card content-->
+                  <div class="card-body text-center no-padding">
+                    <!--Category & Title-->
+                    <a class="text-muted">
+                      <h5>{{ course.courseCategory }}</h5>
+                    </a>
+                    <p class="card-title">
+                      <strong>
+                        <a [routerLink]="['/courses/course', course.$key]" routerLinkActive="router-link-active">{{
+                          course.courseTitle }}</a>
+                      </strong>
+                    </p>
+                    <!--Description-->
+                    <p class="card-text">{{ course.courseDescription }}
+                    </p>
+                    <!--Card footer-->
+                    <div class="card-footer">
+                      <span class="left">₹ {{ course.coursePrice }}</span>
+                      <span class="right">
+                        <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(course)">
+                          <i class="fa fa-heart"></i>
+                        </a>
+                        <a placement="top" mdbTooltip="Add to Cart" container="body" (click)="addCourseToCart(course)">
+                          <i class="fa fa-shopping-cart"></i>
+                        </a>
+                        <a placement="top" mdbTooltip="Remove Course" container="body" *ngIf="authService.isAdmin()"
+                          (click)="removeCourse(course.$key)">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      </span>
+                    </div>
+
+                  </div>
+                  <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="text-center mt-3">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-add-course></app-add-course>

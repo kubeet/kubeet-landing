@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "./shared/services/user.service";
 import { fadeAnimation } from "./shared/animations/fadeIntRoute";
 import { NgxSoapService, Client, ISoapMethodResponse } from 'ngx-soap';
+import { MessagingService } from "./shared/messaging.service";
 
 declare var $: any;
 
@@ -16,11 +17,12 @@ export class AppComponent implements OnInit {
   client: Client;
   intA = 2;
   intB = 3;
-  message: string;
+  // message: string;
   xmlResponse: string;
+  message;
 
   constructor(private userService: UserService,
-    private soap: NgxSoapService) {
+    private soap: NgxSoapService, private messagingService: MessagingService) {
 
       //this.soap.createClient('assets/calculator.wsdl')
       this.soap.createClient('assets/SIFEIService.wsdl')
@@ -48,6 +50,12 @@ export class AppComponent implements OnInit {
     }, err => console.log(err));
   }
   ngOnInit() {
+    // Push Notification settings.
+    const userId = 'user001';
+    this.messagingService.requestPermission(userId)
+    this.messagingService.receiveMessage()
+    this.message = this.messagingService.currentMessage
+
    // this.sum();
     $(document).ready(function() {
       $(".banner").owlCarousel({

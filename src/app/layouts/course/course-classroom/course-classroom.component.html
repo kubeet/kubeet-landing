@@ -1,0 +1,49 @@
+
+<!-- Global Containers -->
+<div *ngIf="loading">
+    <link rel="stylesheet"
+     href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+       crossorigin="anonymous">
+  <!-- Title -->
+
+  <!-- Main Menu-->
+  <div style="overflow:auto">
+    <!-- Concepts List -->
+    <div class="menu" *ngIf="loading" style=" width:20%">
+        <div style="margin-top: 0px;
+        margin-left: 0px;
+        border-style: none;background-color:#e91e63;
+        padding:15px;text-align:center;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        font-family: Ubuntu, sans-serif,helvetica neue,Helvetica,Arial,sans-serif;color: rgb(236, 233, 233);"
+        class="ng-tns-c0-0">
+            <h1 style="font-size: 1.5rem;" >{{concept.conceptTitle}}</h1>
+          </div>
+      <h3 style="color:#96125400; display: none;">Lista de Conceptos</h3>
+      <div *ngFor="let concept of concepts" style=" text-align:left; background-color:#961254;">
+        <a [routerLink]="['/courses/course', courseKey, 'lesson', lessonKey, 'concept', concept.$key]" href="javascript:;">
+          <svg class="icon-arrow before">
+              
+          </svg>
+          <span class="label">#{{concept.conceptIndex}}
+          {{concept.conceptTitle}}
+        </span>
+          <svg class="icon-arrow after">
+            <use xlink:href="#arrow"></use>
+          </svg>
+        </a>
+          <svg style="display: none;">
+            <defs>
+              <symbol id="arrow" viewBox="0 0 35 15">
+                <title>Arrow</title>
+                <path d="M27.172 5L25 2.828 27.828 0 34.9 7.071l-7.07 7.071L25 11.314 27.314 9H0V5h27.172z "/>
+              </symbol>
+            </defs>
+          </svg>
+      </div>  
+    </div>
+      <div class="main" *ngIf="loading" style="width: 80%;">
+        <iframe width="640" height="480" [src]="videoUrl()" style="width: -moz-available"></iframe>
+      </div>
+  </div>
+</div>

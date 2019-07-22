@@ -1,0 +1,74 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Course</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <form class="needs-validation" #addCourseForm="ngForm" (ngSubmit)="createCourse(addCourseForm)">
+          <!-- Course Title & Category -->
+          <div class="row">
+            <!-- Course Title -->
+            <div class="col-md-6 mb-3">
+              <label for="courseTitle">Course Title</label>
+              <input type="text" class="form-control" id="courseName" name="courseTitle" [(ngModel)]="course.courseTitle" placeholder="Course Title"
+                value="" required>
+              <div class="invalid-feedback">
+                Valid title is required.
+              </div>
+            </div>
+            <!-- Course Category -->
+            <div class="col-md-6 mb-3">
+              <label for="courseCategory">Course Category</label>
+              <input type="text" class="form-control" id="courseCategory" name="courseCategory" [(ngModel)]="course.courseCategory"
+                placeholder="Course Category" value="" required>
+              <div class="invalid-feedback">
+                Valid category is required.
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Description -->
+          <div class="mb-3">
+            <label for="courseDescription">Course Description
+              <span class="text-muted">(Optional)</span>
+            </label>
+            <textarea type="text" class="form-control" id="courseDescription" placeholder="Course Description" name="courseDescription"
+              [(ngModel)]="course.courseDescription"></textarea>
+          </div>
+
+          <!-- Course Price -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="coursePrice">Course Price</label>
+              <input type="number" name="coursePrice" class="form-control" [(ngModel)]="course.coursePrice" placeholder="Course Price"
+                id="coursePrice" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course Image -->
+          <div class="mb-3">
+            <label for="courseImage">Course Image</label>
+            <input type="text" class="form-control" id="courseImage" [(ngModel)]="course.courseImage" name="courseImage"
+              placeholder="Image Url" required>
+          </div>
+
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Add Course</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -7,11 +7,17 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { TranslateService } from './shared/services/translate.service';
-import { ProductModule } from './layouts/product/product.module';
+//import { ProductModule } from './layouts/product/product.module';
+import { CourseModule } from './layouts/course/course.module';
 import { UserModule } from './layouts/user/user.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgxSoapModule } from 'ngx-soap';
+import { MessagingService } from './shared/messaging.service';
+import { AngularFireMessaging } from '@angular/fire/messaging';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
@@ -25,7 +31,8 @@ export function setupTranslateFactory(service: TranslateService): Function {
 		BrowserModule,
 		BrowserAnimationsModule,
 		IndexModule,
-		ProductModule,
+		//ProductModule,
+		CourseModule,
 		UserModule,
 		SharedModule,
 		RouterModule.forRoot(AppRoutes),
@@ -33,6 +40,10 @@ export function setupTranslateFactory(service: TranslateService): Function {
 	],
 	providers: [
 		TranslateService,
+		MessagingService,
+		AsyncPipe,
+		AngularFireMessaging,
+		AngularFireStorage,
 		
 		{
 			provide: APP_INITIALIZER,
